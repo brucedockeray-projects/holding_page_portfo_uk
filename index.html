@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="portfo.uk – a portfolio is on its way." />
+  <title>portfo.uk – Coming Soon</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --accent: #6c63ff;
+      --accent-light: #a09af8;
+      --text: #e8e8f0;
+      --muted: #7c7d8e;
+      --border: rgba(108, 99, 255, 0.25);
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Subtle radial glow behind the card */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(108, 99, 255, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 3.5rem 3rem;
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      display: inline-block;
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--accent-light);
+      margin-bottom: 0.25rem;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .divider {
+      width: 3rem;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      border-radius: 99px;
+      margin: 0 auto 2rem;
+    }
+
+    .notify {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 0.45rem 1.1rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 2.5rem 1.75rem;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">portfo<span>.uk</span></div>
+    <div class="tagline">Portfolio &amp; Creative Work</div>
+
+    <div class="divider"></div>
+
+    <h1>Something great is on the way</h1>
+    <p>
+      This site is currently under construction. A brand-new portfolio
+      showcasing design, development, and creative projects will be
+      launching here soon.
+    </p>
+
+    <div class="notify">
+      <span class="dot"></span>
+      Work in progress
+    </div>
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> portfo.uk &mdash; all rights reserved
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
